@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .table {
+            padding: 0 40px;
+            margin-bottom: 40px;
+        }
+        .table .name-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: auto;
+            height: 40px;
+            margin-bottom: 10px;
+        }
+        .name-wrapper .name {
+            width: auto;
+            font-size: 24px;
+            padding-right: 10px;
+        }
+        .name-wrapper:hover .edit-icon {
+            opacity: 1;
+        }
+        .name-wrapper .edit-icon {
+            opacity: 0;
+        }
+        .name-wrapper i {
+            cursor: pointer;
+        }
+        .name-wrapper i:hover {
+            color: #5CB6FF;
+        }
+        .header-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 20px;
+        }
+        .header-wrapper .left {
+            display: flex;
+            align-items: flex-end;
+        }
+        .header-wrapper input {
+            color: #000000;
+            font-size: 16px;
+            height: 24px;
+            border: none;
+            border-radius: 0;
+            background: transparent;
+            border-bottom: 1px solid #000000 !important;
+        }
+        .header-wrapper .center {
+            display: flex;
+            align-items: flex-end;
+            margin-right: 20%;
+        }
+        .header-wrapper .center .year {
+            padding-left: 10px;
+            width: 70px;
+            outline: none;
+            height: 20px;
+        }
+        .header-wrapper .center .month {
+            padding-left: 10px;
+            outline: none;
+            width: 50px;
+            height: 20px;
+        }
+        .header-wrapper .right {
+            text-align: right;
+        }
+        .content-wrapper {
+            width: 100%;
+            overflow: auto;
+        }
+        .content-wrapper .main-table {
+            position: relative;
+            margin: 0 auto;
+            border-spacing: 0;
+            border-collapse: collapse;
+        }
+        .content-wrapper .main-table::before {
+            content: '';
+            position: absolute;
+            left: -1px;
+            top: -1px;
+            width: 2px;
+            height: 100%;
+            background-color: #FFFFFF;
+            z-index: 2;
+        }
+        .content-wrapper .main-table::after {
+            content: '';
+            position: absolute;
+            right: -1px;
+            top: -1px;
+            width: 2px;
+            height: 100%;
+            background-color: #FFFFFF;
+            z-index: 2;
+        }
+        .content-wrapper .main-table th,
+        .content-wrapper .main-table td {
+            border: 1px solid #CCCCCC;
+            padding: 10px;
+            text-align: center;
+            line-height: 30px;
+            min-width: 74px;
+            outline: none;
+            min-height: 24px;
+        }
+        .content-wrapper .main-table td p {
+            padding: 0;
+            margin: 0;
+        }
+        .content-wrapper .main-table .first {
+            position: relative;
+            min-width: 200px;
+            background: linear-gradient(20deg, transparent 49.5%, #CCCCCC 49.5%, #CCCCCC 50.5%, transparent 50.5%);
+        }
+        .main-table .first .column {
+            position: absolute;
+            right: 10px;
+            transform: translateY(-50%);
+        }
+        .main-table .first .row {
+            position: absolute;
+            left: 10px;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+<body>
+    <div class="table table1">
+        <div class="name-wrapper">
+            <div class="name">医院科室直接成本表</div>
+        </div>
+        <div class="header-wrapper">
+            <div class="left">
+                <span>编制单位：</span>
+                <input type="text" value="编制单位名称" disabled>
+            </div>
+            <div class="center">
+                <input class="year" maxlength="4" value="2022">
+                <span>年</span>
+                <input class="month" maxlength="2" value="03">
+                <span>月</span>
+            </div>
+            <div class="right">
+                <div>科室01表</div>
+                <div>单位：元</div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th class="first">
+                            <div class="column">成本项目</div>
+                            <div class="row">科室名称</div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="table table2">
+        <div class="name-wrapper">
+            <div class="name">医院科室诊次成本表</div>
+        </div>
+        <div class="header-wrapper">
+            <div class="left">
+                <span>编制单位：</span>
+                <input type="text" value="另一个编制单位名称" disabled>
+            </div>
+            <div class="center">
+                <input class="year" maxlength="4" value="2022">
+                <span>年</span>
+                <input class="month" maxlength="2" value="10">
+                <span>月</span>
+            </div>
+            <div class="right">
+                <div>诊次02表</div>
+                <div>单位：元</div>
+            </div>
+        </div>
+        <div class="content-wrapper">
+            <table class="main-table">
+                <thead>
+                    <tr>
+                        <th rowspan="2" style="min-width: 120px;">科室编码</th>
+                        <th rowspan="2" style="min-width: 120px;">科室名称</th>
+                        <th rowspan="2" style="min-width: 120px;">服务量</th>
+                        <th colspan="3">每诊次成本</th>
+                    </tr>
+                    <tr>
+                        <th style="min-width: 120px;">医疗成本</th>
+                        <th style="min-width: 120px;">医疗全成本</th>
+                        <th style="min-width: 120px;">医院全成本</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                    <tr>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                        <td contenteditable="true"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <script>
+        let headData = [
+            { key: 'people', name: '人员经费<br>(1)' },
+            { key: 'health', name: '卫生材料费<br>(2)' },
+            { key: 'medicine', name: '药品费<br>(3)' },
+            { key: 'guding', name: '固定资产折旧费<br>(4)' },
+            { key: 'wuxing', name: '无形资产推销费<br>(5)' },
+            { key: 'tiqu', name: '提取医疗风险资金<br>(6)' },
+            { key: 'other', name: '其他运行费用<br>(7)' },
+            { key: 'sum', name: '合计<br>(8)=(1)+(2)+(3)+(4)+(5)+(6)+(7)', width: 185 }
+        ];
+        let tableDom1 = document.querySelector('.table1 .main-table');
+        let headTr1 = tableDom1.querySelector('thead tr');
+        headData.forEach(item => {
+            let th = document.createElement('th');
+            th.innerHTML = item.name;
+            if (item.width) th.style.minWidth = `${item.width}px`;
+            headTr1.appendChild(th);
+        });
+
+        let rowData = [
+            [
+                { name: '临床服务类科室1' },
+                { name: '临床服务类科室2' },
+                { name: '临床服务类科室3' },
+                { name: '临床服务类科室4' },
+                { name: '小计' }
+            ],
+            [
+                { name: '医疗技术类科室1' },
+                { name: '医疗技术类科室2' },
+                { name: '医疗技术类科室3' },
+                { name: '医疗技术类科室4' },
+                { name: '小计' }
+            ],
+            [
+                { name: '医疗辅助类科室1' },
+                { name: '医疗辅助类科室2' },
+                { name: '医疗辅助类科室3' },
+                { name: '医疗辅助类科室4' },
+                { name: '小计' }
+            ],
+            { name: '医疗业务成本合计' },
+            { name: '管理费用' },
+            { name: '总计' }
+        ];
+        let bodyDom1 = tableDom1.querySelector('tbody');
+        rowData.forEach(item => {
+            let tr = document.createElement('tr');
+            let tds = '';
+            if (Array.isArray(item)) {
+                // 第一个td
+                let tdContent = '';
+                item.forEach(innerItem => {
+                    tdContent += `<p>${innerItem.name}</p>`;
+                });
+                tds += `<td>${tdContent}</td>`;
+                // 后面的td
+                headData.forEach(hItem => {
+                    tds += `<td contenteditable="true"></td>`;
+                });
+            } else {
+                // 第一个td
+                tds += `<td>${item.name}</td>`;
+                // 后面的td
+                headData.forEach(hItem => {
+                    tds += `<td contenteditable="true"></td>`;
+                });
+            }
+            tr.innerHTML = tds;
+            bodyDom1.appendChild(tr);
+        });
+    </script>
+</body>
+</html>
